@@ -11,12 +11,13 @@ class Request
     private $httpResponseCode;
     private $httpFullHeader;
 
-    public function __construct($accessKeyId, $responseFormat, $debugMode)
+    public function __construct($accessKeyId, $responseFormat, $debugMode, $country)
     {
         try {
             $this->apiAccessKeyId = $accessKeyId;
             $this->apiFormat = $responseFormat;
             $this->apiDebugMode = $debugMode;
+            $this->country = $country;
         } catch (Exception $e) {
             echo "Exception: " . $e->getMessage() . "\n";
         }
@@ -28,6 +29,7 @@ class Request
         $parameters .= ($parameters == '' ? '?' : '&');
         $parameters .= 'format=' . $this->apiFormat;
         $parameters .= '&apikey=' . $this->apiAccessKeyId;
+        $parameters .= '&country=' . $this->country;
 
         $today = gmdate('D, d F Y H:i:s \G\M\T');
 

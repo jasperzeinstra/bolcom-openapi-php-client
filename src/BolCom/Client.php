@@ -7,9 +7,9 @@ class Client
     private $requestHelper;
     private $fullResponse;
 
-    public function __construct($accessKeyId = NULL, $responseFormat = NULL, $debugMode = NULL)
+    public function __construct($accessKeyId = NULL, $responseFormat = NULL, $debugMode = NULL, $country = NULL)
     {
-        $this->requestHelper = new Request($accessKeyId, $responseFormat, $debugMode);
+        $this->requestHelper = new Request($accessKeyId, $responseFormat, $debugMode, $country);
     }
 
     public function getPingResponse()
